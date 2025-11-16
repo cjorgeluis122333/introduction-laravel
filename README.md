@@ -82,9 +82,10 @@ It do not have the foreign key -> HasOne
 ### Example
 
 Relation: User -> Phone
+```
 User - HasOne - Phone
-[br]
 Pone - Belong - User
+```
 
 #### =====================================================================
 
