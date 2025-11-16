@@ -99,7 +99,7 @@ class Phone extends Model
         return $this->belongsTo(User::class);
     }
 }
-//User
+//UserResource
 class User extends Authenticatable
 {
     protected $guarded = [];
