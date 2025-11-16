@@ -40,6 +40,17 @@ $ruta = $request->path(); // /users/profile
 $url = $request->url(); // http://midominio.com/users
 ```
 
+
+## Seeder
+The seeder is a date you insert in your database went you create. Date like user
+with roll admin or things like this. They are like the kernel of the info
+
+## Factory
+If you want filled a database with date for test you can use factory. 
+### Fake
+Fake is a function use for create date pseudo random. Is some random but less random like some random.
+
+
 ## Connect to postgres
 ``` env
 DB_CONNECTION=pgsql
