@@ -15,6 +15,14 @@ class UserController extends Controller
         return $users;
     }
 
+    public function findUserById($id){
+        $user = User::find($id);
+        return response()->json([
+            'user'=>$user,
+            'user_phone' => $user-> phone
+        ]);
+    }
+
     /**
      * Not work ask AI
      * */
