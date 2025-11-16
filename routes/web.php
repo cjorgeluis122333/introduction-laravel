@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +18,9 @@ Route::get("/filter/manual",[UserController::class,"searchUserNotUseOrm"])->name
 /*
  * In this section I create a methods with dynamic params
  */
-Route::get("/product",[ProductController::class,"index"])->name("product.index");
-Route::get("/product/insert/{fistName}/{lastName}",[ProductController::class,"insertPeople"],)->name("product.insert");
-
+Route::get("/product",[PeopleController::class,"index"])->name("product.index");
+Route::get("/product/show/{people}",[PeopleController::class,"findPeopleById"])->name("product.show");
+//withoutMiddleware if I do not use that methode you have a 419 error
+Route::post('/product/insert', [PeopleController::class, 'insertPeople'])->withoutMiddleware(['web']);
+Route::delete('/product/delete/{id}', [PeopleController::class, 'deletePeopleById'])->withoutMiddleware(['web']);
+Route::put('/product/update/{id}', [PeopleController::class, 'updatePeopleById'])->withoutMiddleware(['web']);
