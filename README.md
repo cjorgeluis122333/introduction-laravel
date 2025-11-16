@@ -14,6 +14,11 @@ in the database than you have in your .env.
 ```shell
 php artisan make:migration create_notes_table
 ```
+## Create roll back
+```shell
+php artisan migrate:rollback
+```
+#### ===================================================================================================================
 
 ## Working of the REQUEST
 ### Get a param of the Field: user/{id}
@@ -41,15 +46,24 @@ $url = $request->url(); // http://midominio.com/users
 ```
 
 
+#### ===================================================================================================================
+
 ## Seeder
 The seeder is a date you insert in your database went you create. Date like user
 with roll admin or things like this. They are like the kernel of the info
-
 ## Factory
 If you want filled a database with date for test you can use factory. 
 ### Fake
 Fake is a function use for create date pseudo random. Is some random but less random like some random.
 
+#### ===================================================================================================================
+## Relation
+It has the foreign key           -> BELONG 'Pertenese'
+It do not have the foreign key   -> HasOne
+### Example
+Relation: User -> Phone
+ User -  HasOne  -  Phone
+ Pone -  Belong  -  User
 
 ## Connect to postgres
 ``` env
