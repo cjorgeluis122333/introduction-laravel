@@ -86,10 +86,37 @@ Relation: User -> Phone
 User - HasOne - Phone
 Pone - Belong - User
 ```
+### Code Sample
+```php
+
+//Phone
+class Phone extends Model
+{
+    use HasFactory;
+    protected $guarded = [];
+
+    public function user():BelongsTo{
+        return $this->belongsTo(User::class);
+    }
+}
+//User
+class User extends Authenticatable
+{
+    protected $guarded = [];
+     
+    public function phone():HasOne{
+        return   $this->hasOne(related: Phone::class);
+    }
+
+}
+
+```
 
 #### =====================================================================
 
-## Connect to postgres
+## Connect to database
+These updates are in the root of the project in a file called: .env  
+### Connect to postgres
 
 ``` env
 DB_CONNECTION=pgsql
@@ -99,6 +126,7 @@ DB_DATABASE=db_larabel_introduction
 DB_USERNAME=jcvidal
 DB_PASSWORD=123456
 ```
+### Connect to mysql
 
 ```env
 DB_CONNECTION=mysql
