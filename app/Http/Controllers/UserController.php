@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,7 +38,7 @@ class UserController extends Controller
     }
 
 
-    public function create()
+    public function create():RedirectResponse
     {
         //CREATE A USER VIA 1
         $user = new User;
