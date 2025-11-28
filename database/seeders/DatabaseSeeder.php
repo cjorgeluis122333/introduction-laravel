@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Producto;
+use Database\Factories\ProductoFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +22,10 @@ class DatabaseSeeder extends Seeder
 //            UserSeeder::class,
             PhoneSeeder::class
         ]);
+        //FACTORY
+
+        Producto::factory(10)->create();
+
         // UserResource::factory(10)->create();
 //        UserResource::factory()->create([
 //            'name' => 'Test UserResource',
