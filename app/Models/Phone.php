@@ -11,6 +11,7 @@ class Phone extends Model
     use HasFactory;
     protected $guarded = [];
 
+    //One to One
     public function user():BelongsTo{
         return $this->belongsTo(User::class,
 //            "id",

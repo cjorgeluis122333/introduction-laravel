@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -38,10 +39,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * Define a relationship
+     * Define a relationship:
+     * @OneToOne: HasOne
+     * @OneToMany: HasMany
      */
-    public function phone():HasOne{
-        return   $this->hasOne(
+    public function phone():HasMany{
+        return   $this->hasMany(
             related: Phone::class,
 //            foreignKey: 'user_id',
 //            localKey: 'id'
