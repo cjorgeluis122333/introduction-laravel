@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\ProductPController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,10 @@ Route::get("/product",[ProductController::class,"index"])->name("product.index")
 
 //Phone
 Route::get("/phone",[PhoneController::class,"index"])->name("phone.index");
+//Product 2
+//Route::get("/product2",[ProductPController::class,"index"])->name("product2.index");
+//Route::post('/product2/insert', [ProductPController::class, 'insertProduct'])->withoutMiddleware(['web']);
+//Route::delete('/product2/delete/{id}', [ProductPController::class, 'deleteProductById'])->withoutMiddleware(['web']);
+//Route::put('/product2/update/{id}', [ProductPController::class, 'updateProduct'])->withoutMiddleware(['web']);
+
+Route::resource('product2', ProductPController::class);
