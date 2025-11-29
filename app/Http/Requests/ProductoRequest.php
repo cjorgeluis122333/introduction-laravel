@@ -11,7 +11,9 @@ class ProductoRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'name' => 'required|string|max:100',
+            'price' => 'required|numeric|min:0',
+            'description' => 'required|string|max:200',
         ];
     }
 

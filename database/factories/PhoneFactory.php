@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Phone;
+use App\Models\user\Phone;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 

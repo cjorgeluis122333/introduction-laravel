@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Producto;
+use App\Models\school\Producto;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
 class ProductoFactory extends Factory
 {

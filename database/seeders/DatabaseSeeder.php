@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Producto;
-use Database\Factories\ProductoFactory;
+use App\Models\school\Producto;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

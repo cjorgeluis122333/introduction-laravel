@@ -2,10 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
+use App\Models\school\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 use Random\RandomException;
 
 class ProductFactory extends Factory

@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\PeopleController;
-use App\Http\Controllers\PhoneController;
-use App\Http\Controllers\ProductPController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\crud\PeopleController;
+use App\Http\Controllers\introduction\PhoneController;
+use App\Http\Controllers\introduction\ProductController;
+use App\Http\Controllers\introduction\UserController;
+use App\Http\Controllers\school\ProductPController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\school;
 
-use App\Models\Product2;
-use App\Models\Producto;
+use App\Http\Controllers\Controller;
+use App\Models\school\Producto;
 use Illuminate\Http\Request;
 
 

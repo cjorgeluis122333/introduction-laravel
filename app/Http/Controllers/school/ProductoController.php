@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\school;
 
-use App\Models\Producto;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductoRequest;
+use App\Models\school\Producto;
 use Illuminate\Http\Request;
 
 /**
@@ -18,6 +20,7 @@ class ProductoController extends Controller
     {
 
         $product = Producto::latest()->paginate($request->query('per_page', '5'));
+
         return $product;
     }
 
@@ -33,7 +36,7 @@ class ProductoController extends Controller
     /**
      * @methode: The methode is a POST
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
         $validation = $request->validate(
             [

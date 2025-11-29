@@ -4,6 +4,8 @@
   php artisan serve
 ```
 
+#### =====================================================================
+
 ## Up the all MIGRATION database
 
 This command get all migration do you have created in your project and execute all them
@@ -29,7 +31,7 @@ php artisan migrate:rollback
 
 ## Working with the REQUEST
 
-### Get a param of the Field: user/{id}
+### Get a param of the Field: /user/{id}
 
 ```php
 //In the controller:
@@ -39,7 +41,7 @@ public function show(Request $request, $id)
 }
 ```
 
-### Get a param of the Query: /users?page=2&status=active
+### Get a param of the QUERY: /users?page=2&status=active
 
 ```php
 //query( <Query_Name>, <Default_Value)
@@ -58,19 +60,49 @@ $url = $request->url(); // http://midominio.com/users
 ```
 
 #### =====================================================================
+## Create a custom request
+The custom request go in the path app/Http/Requests/<Name_of_the_request>.
+
+### Validation
+In the request you cant create a validation into the methode rules. When you go to insert a new date in store
+you can not to create a validation in the controller, this make automatic.
+```php
+public function rules(): array
+    {
+        return [  //Here go the validation
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|min:2|max:100',
+        ];
+    }
+```
+### On Failed Validation
+This function is not autogenerate when you create the Request. But it is util because here you can generate a
+validation error separate of the controller
+```php
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'res' => false,
+            'message' => 'Validation errors',
+            'errors' => $validator->errors()
+        ], 422));
+    }
+
+```
+#### =====================================================================
 
 ## Seeder
-
 The seeder is a date you insert in your database went you create. Date like user
 with roll admin or things like this. They are like the kernel of the info
 
 ## Factory
-
 If you want filled a database with date for test you can use factory.
 
-### Fake
-
+## Fake
 Fake is a function use for create date pseudo random. Is some random but less random like some random.
+
+
 
 #### =====================================================================
 
@@ -92,7 +124,6 @@ Pone - Belong - User
 //Phone
 class Phone extends Model
 {
-    use HasFactory;
     protected $guarded = [];
 
     public function user():BelongsTo{
@@ -107,7 +138,6 @@ class User extends Authenticatable
     public function phone():HasOne{
         return   $this->hasOne(related: Phone::class);
     }
-
 }
 
 ```

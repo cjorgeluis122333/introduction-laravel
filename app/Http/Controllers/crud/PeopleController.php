@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\crud;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\PeopleRequest;
-use App\Models\People;
-use http\Env\Response;
+use App\Models\user\People;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 

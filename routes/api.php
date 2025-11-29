@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\UserController;
-use App\Http\Resources\ProductoResource;
+use App\Http\Controllers\school\ProductoController;
 use App\Http\Resources\UserResource;
-use App\Models\Producto;
-use App\Models\User;
+use App\Models\school\Producto;
+use App\Models\user\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +28,7 @@ Route::post('/producto', function () {
         "description" => "Mac dsadaa",
         "price" => 10.00,
     ]);
-    $productos = Producto::all();
-    return $productos;
+    return Producto::all();
 });
 
 Route::apiResource('crud/productos', ProductoController::class);

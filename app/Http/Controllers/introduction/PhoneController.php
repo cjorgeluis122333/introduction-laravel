@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\introduction;
 
-use App\Models\Phone;
+use App\Http\Controllers\Controller;
+use App\Models\user\Phone;
 
 class PhoneController extends Controller
 {
