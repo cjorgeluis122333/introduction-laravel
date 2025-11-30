@@ -106,19 +106,19 @@ Fake is a function use for create date pseudo random. Is some random but less ra
 
 #### =====================================================================
 
-## Relation
+## Relation ONE TO ONE
 
 It has the foreign key -> BELONG 'Pertenese'
 It do not have the foreign key -> HasOne
 
-### Example
+### Example ONE to ONE
 
 Relation: User -> Phone
 ```
 User - HasOne - Phone
 Pone - Belong - User
 ```
-### Code Sample
+### Code Sample ONE to ONE
 ```php
 
 //Phone
@@ -140,6 +140,26 @@ class User extends Authenticatable
     }
 }
 
+```
+
+## Relation MANY TO MANY
+This relation change something like: Create an Intermediate Table 
+### Update
+```php
+$school->services()->sync([1, 4, 5]); // Solo tendrá estos servicios
+```
+
+### Insert
+```php
+// Agregar un servicio específico
+$school->services()->attach($serviceId);
+
+```
+
+### Delete
+```php
+// Remover un servicio
+$school->services()->detach($serviceId);
 ```
 
 #### =====================================================================

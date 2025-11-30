@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\relation\StudentController;
 use App\Http\Controllers\school\ProductoController;
 use App\Http\Resources\UserResource;
 use App\Models\school\Producto;
@@ -32,3 +33,5 @@ Route::post('/producto', function () {
 });
 
 Route::apiResource('crud/productos', ProductoController::class);
+
+Route::apiResource('/relation', StudentController::class);
