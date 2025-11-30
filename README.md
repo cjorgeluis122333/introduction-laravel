@@ -4,7 +4,7 @@
   php artisan serve
 ```
 
-#### =====================================================================
+#### ==============================MIGRATION==============================
 
 ## Up the all MIGRATION database
 
@@ -14,7 +14,11 @@ in the database than you have in your .env.
 ```shell
   php artisan migrate
 ```
-
+### Specific a folder (--path)
+Up migration into a sub folder like: database/migrations/create/relation
+```shell
+ php artisan migrate:status --path=database/migrations/create/relation
+```
 ## Create new MIGRATION
 
 ```shell
@@ -27,7 +31,7 @@ php artisan make:migration create_notes_table
 php artisan migrate:rollback
 ```
 
-#### =====================================================================
+# ==============================REQUEST================================
 
 ## Working with the REQUEST
 
@@ -59,7 +63,7 @@ $ruta = $request->path(); // /users/profile
 $url = $request->url(); // http://midominio.com/users
 ```
 
-#### =====================================================================
+# =======================CUSTOM REQUEST===============================
 ## Create a custom request
 The custom request go in the path app/Http/Requests/<Name_of_the_request>.
 
@@ -90,7 +94,7 @@ validation error separate of the controller
     }
 
 ```
-#### =====================================================================
+# ============================DATABASE==================================
 
 ## Seeder
 The seeder is a date you insert in your database went you create. Date like user
@@ -104,23 +108,24 @@ Fake is a function use for create date pseudo random. Is some random but less ra
 
 
 
-#### =====================================================================
+# ===============================RELATION==============================
+## Relation
 
-## Relation ONE TO ONE
+
+### Relation ONE TO ONE
 
 It has the foreign key -> BELONG 'Pertenese'
 It do not have the foreign key -> HasOne
 
-### Example ONE to ONE
+#### Example ONE to ONE
 
 Relation: User -> Phone
 ```
 User - HasOne - Phone
 Pone - Belong - User
 ```
-### Code Sample ONE to ONE
+#### Code Sample ONE to ONE
 ```php
-
 //Phone
 class Phone extends Model
 {
@@ -139,24 +144,27 @@ class User extends Authenticatable
         return   $this->hasOne(related: Phone::class);
     }
 }
-
 ```
 
-## Relation MANY TO MANY
+### Relation One To Many
+Is exactly like ono to one but here the type is: HasMany
+
+### Relation MANY TO MANY
 This relation change something like: Create an Intermediate Table 
-### Update
+
+#### Update
 ```php
 $school->services()->sync([1, 4, 5]); // Solo tendrá estos servicios
 ```
 
-### Insert
+#### Insert
 ```php
-// Agregar un servicio específico
-$school->services()->attach($serviceId);
-
+//Append the specific service to the school
+   $school->services()
+           ->attach($request->service_id, ['cost' => $request->cost]);
 ```
 
-### Delete
+#### Delete
 ```php
 // Remover un servicio
 $school->services()->detach($serviceId);

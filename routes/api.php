@@ -35,3 +35,4 @@ Route::post('/producto', function () {
 Route::apiResource('crud/productos', ProductoController::class);
 
 Route::apiResource('/relation', StudentController::class);
+Route::post('/relation/{school_id}/attach', [StudentController::class, 'attachServiceToSchool']);
