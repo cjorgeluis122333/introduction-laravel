@@ -12,21 +12,23 @@ class School extends Model
 {
     use HasFactory;
 
-
     protected $fillable = ['name', 'type', 'address'];
 
-    public function services():BelongsToMany
+    public function services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class)->withPivot('cost');
+        // Especificamos 'school_service' por si acaso, y los pivotes extra
+        return $this->belongsToMany(Service::class, 'school_service')
+            ->withPivot('cost')
+            ->withTimestamps();
     }
 
-    public function student(): HasMany
+    public function students(): HasMany
     {
         return $this->hasMany(Student::class);
     }
 
-    public function director(): HasOne{
+    public function director(): HasOne
+    {
         return $this->hasOne(Director::class);
     }
-
 }

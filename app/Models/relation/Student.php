@@ -11,14 +11,17 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'age', 'scholar_year','school_id'];
+    protected $fillable = ['name', 'age', 'scholar_year', 'school_id'];
 
-    public function school(): BelongsTo{
+    // Singular: Pertenece a UNA escuela
+    public function school(): BelongsTo
+    {
         return $this->belongsTo(School::class);
     }
 
-    public function book(): HasMany{
+    // Plural: Tiene MUCHOS libros
+    public function book(): HasMany
+    {
         return $this->hasMany(Book::class);
     }
-
 }

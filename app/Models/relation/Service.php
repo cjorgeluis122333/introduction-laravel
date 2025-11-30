@@ -11,10 +11,11 @@ class Service extends Model
     use HasFactory;
     protected $fillable = ['name', 'type'];
 
-
-    public function school():BelongsToMany
+    // Plural: Pertenece a MUCHAS escuelas
+    public function schools(): BelongsToMany
     {
-        return $this->belongsToMany(School::class)->withPivot('cost');
+        return $this->belongsToMany(School::class, 'school_service')
+            ->withPivot('cost')
+            ->withTimestamps();
     }
-
 }
