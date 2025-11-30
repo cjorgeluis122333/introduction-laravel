@@ -170,7 +170,7 @@ $school->services()->sync([1, 4, 5]); // Solo tendrá estos servicios
 $school->services()->detach($serviceId);
 ```
 
-#### =====================================================================
+#### =============================ENV CONFIG==============================
 
 ## Connect to database
 These updates are in the root of the project in a file called: .env  
