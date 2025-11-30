@@ -15,7 +15,8 @@ in the database than you have in your .env.
   php artisan migrate
 ```
 ### Specific a folder (--path)
-Up migration into a sub folder like: database/migrations/create/relation
+Up migration into a sub folder like: database/migrations/create/relationcreate/relation
+
 ```shell
  php artisan migrate:status --path=database/migrations/create/relation
 ```
