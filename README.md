@@ -31,7 +31,7 @@ php artisan make:migration create_notes_table
 php artisan migrate:rollback
 ```
 
-# ==============================REQUEST================================
+#### ==============================REQUEST================================
 
 ## Working with the REQUEST
 
@@ -63,7 +63,7 @@ $ruta = $request->path(); // /users/profile
 $url = $request->url(); // http://midominio.com/users
 ```
 
-# =======================CUSTOM REQUEST===============================
+#### =======================CUSTOM REQUEST===============================
 ## Create a custom request
 The custom request go in the path app/Http/Requests/<Name_of_the_request>.
 
@@ -94,7 +94,7 @@ validation error separate of the controller
     }
 
 ```
-# ============================DATABASE==================================
+#### ============================DATABASE==================================
 
 ## Seeder
 The seeder is a date you insert in your database went you create. Date like user
@@ -108,7 +108,7 @@ Fake is a function use for create date pseudo random. Is some random but less ra
 
 
 
-# ===============================RELATION==============================
+#### ===============================RELATION==============================
 ## Relation
 
 
