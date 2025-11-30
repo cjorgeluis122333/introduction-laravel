@@ -13,8 +13,7 @@ class Student extends Model
 
     protected $fillable = ['name', 'age', 'scholar_year','school_id'];
 
-    public function school(): BelongsTo
-    {
+    public function school(): BelongsTo{
         return $this->belongsTo(School::class);
     }
 
