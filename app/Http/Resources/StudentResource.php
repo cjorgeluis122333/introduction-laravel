@@ -13,6 +13,7 @@ class StudentResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'book' => $this->book,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
