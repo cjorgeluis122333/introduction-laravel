@@ -1,3 +1,16 @@
+# This project try to cover all theme of laravel
+1. Create a project
+2. Environment config
+3. Migration
+4. Seeder
+5. Factory
+6. Controller
+7. Model
+8. Relation
+9. Middleware
+10. Exc  ....
+11. **Here you will found a lot of samples**
+
 ## Run a project
 
 ```shell
@@ -107,19 +120,14 @@ If you want filled a database with date for test you can use factory.
 ## Fake
 Fake is a function use for create date pseudo random. Is some random but less random like some random.
 
-
-
 #### ===============================RELATION==============================
 ## Relation
 
-
 ### Relation ONE TO ONE
-
 It has the foreign key -> BELONG 'Pertenese'
 It do not have the foreign key -> HasOne
 
 #### Example ONE to ONE
-
 Relation: User -> Phone
 ```
 User - HasOne - Phone
@@ -151,25 +159,39 @@ class User extends Authenticatable
 Is exactly like ono to one but here the type is: HasMany
 
 ### Relation MANY TO MANY
-This relation change something like: Create an Intermediate Table 
+This relation change something like: Create an Intermediate Table
 
 #### Update
 ```php
 $school->services()->sync([1, 4, 5]); // Solo tendrá estos servicios
 ```
-
 #### Insert
 ```php
 //Append the specific service to the school
    $school->services()
            ->attach($request->service_id, ['cost' => $request->cost]);
 ```
-
 #### Delete
 ```php
 // Remover un servicio
 $school->services()->detach($serviceId);
 ```
+#### ==============================MIDDLEWARE=============================
+## Middleware
+The Middleware is an interceptor that execute before the controller. He validated the request and if 
+all was successfully them you can access to the controller.
+### Example
+If you make the request for get all user but the only way you acceded to this request is:
+You were login before
+### Create a middleware
+```shell
+ php artisan make:middleware ExampleOne 
+```
+### Global Middleware
+If you want a middleware to run during every HTTP request to your application, you may 
+append it to the global middleware stack in your application's **bootstrap/app.php** file:
+
+
 
 #### =============================ENV CONFIG==============================
 

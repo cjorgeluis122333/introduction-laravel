@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * In new laravel version you have to config laravel
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
