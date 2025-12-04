@@ -17,7 +17,7 @@ class School extends Model
     public function services(): BelongsToMany
     {
         // Especificamos 'school_service' por si acaso, y los pivotes extra
-        return $this->belongsToMany(Service::class, 'school_service')
+        return $this->belongsToMany(Service::class, 'school_services_pivot')
             ->withPivot('cost')
             ->withTimestamps();
     }

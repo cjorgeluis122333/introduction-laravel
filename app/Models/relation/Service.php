@@ -14,7 +14,7 @@ class Service extends Model
     // Plural: Pertenece a MUCHAS escuelas
     public function schools(): BelongsToMany
     {
-        return $this->belongsToMany(School::class, 'school_service')
+        return $this->belongsToMany(School::class, 'school_services_pivot')
             ->withPivot('cost')
             ->withTimestamps();
     }

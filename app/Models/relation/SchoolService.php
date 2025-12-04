@@ -11,7 +11,7 @@ class SchoolService extends Model
     use HasFactory;
 
     // ⚠️ Define explícitamente el nombre de la tabla pivote
-    protected $table = 'school_service_pivot';
+    protected $table = 'school_services_pivot';
 // 1. SOLUCIÓN: Indicar que NO existe una clave primaria 'id'
     // Eloquent ya no intentará obtener el 'id' al insertar.
     protected $primaryKey = null;
