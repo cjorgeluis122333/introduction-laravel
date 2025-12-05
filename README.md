@@ -11,15 +11,26 @@
 10. Exc  ....
 11. **Here you will found a lot of samples**
 
-## Run a project
+## Getting Stated in Laravel
 
+### Create a project
+#### **V1**: Use Laravel
+```shell
+   laravel new nombre-de-tu-proyecto
+```
+#### **V2**: Use Composer
+```shell
+   composer create-project laravel/laravel nombre-de-tu-proyecto
+```
+
+### Run the serve
 ```shell
   php artisan serve
 ```
 
 #### ==============================MIGRATION==============================
 
-## Up the all MIGRATION database
+## Up the all **MIGRATION  database**
 
 This command get all migration do you have created in your project and execute all them
 in the database than you have in your .env.
