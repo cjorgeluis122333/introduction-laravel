@@ -211,6 +211,26 @@ You were login before
 If you want a middleware to run during every HTTP request to your application, you may 
 append it to the global middleware stack in your application's **bootstrap/app.php** file:
 
+### Way 1: How to use a middleware in a rout 
+Create a route with one or more middleware in the route you can define the middleware you will use 
+***Inside him, you define the routes.***
+```php
+Route::middleware([EnsureTokenIsValid::class])->group(function () {
+    Route::get('/', function () {
+        // ...
+    });
+```
+
+### Way 2: How to use a middleware in a rout
+Create a route with one or more middleware in the route you can define the middleware you will use
+***Define the route and create the route***
+ ```php
+    Route::get('/profile', function () {
+        // ...
+    })->withoutMiddleware([EnsureTokenIsValid::class]);
+});
+```
+
 
 
 #### =============================ENV CONFIG==============================
