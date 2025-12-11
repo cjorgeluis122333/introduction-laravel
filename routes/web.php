@@ -41,3 +41,4 @@ Route::get("/phone",[PhoneController::class,"index"])->name("phone.index");
 //Route::put('/product2/update/{id}', [ProductPController::class, 'updateProduct'])->withoutMiddleware(['web']);
 
 Route::resource('product2', ProductPController::class);
+//Route::resource('producto/crud', ProductoController::class);
