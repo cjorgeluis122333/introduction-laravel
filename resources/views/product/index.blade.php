@@ -12,7 +12,21 @@
 
 @foreach($products as $p)
 
-<h2>{{$p->name}}</h2>
+    <div style="display: flex; gap: 2em">
+
+        <h2>{{$p->name}}</h2>
+        <h6>{{$p->description}}</h6>
+        <h6>{{$p->price}}</h6>
+
+    </div>
+    <form method="POST" action="{{route("product2.destroy",$p)}}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete</button>
+
+    </form>
+
+    <a href="{{route("product2.edit",$p)}}">Update</a>
 
 @endforeach
 
