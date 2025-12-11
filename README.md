@@ -14,14 +14,23 @@
 ## Getting Stated in Laravel
 
 ### Create a project
-#### **V1**: Use Laravel
+#### Step 1: Update Composer
+```shell
+   composer global update
+```
+#### Step 2 (**V1**): Use Laravel
 ```shell
    laravel new nombre-de-tu-proyecto
 ```
-#### **V2**: Use Composer
+#### Step 1: (**V2**): Use Composer
 ```shell
    composer create-project laravel/laravel nombre-de-tu-proyecto
 ```
+### Create the route api
+```shell
+   php artisan install:api
+```
+
 
 ### Run the serve
 ```shell
