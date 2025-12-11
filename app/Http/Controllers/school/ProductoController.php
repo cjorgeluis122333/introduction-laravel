@@ -5,6 +5,7 @@ namespace App\Http\Controllers\school;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductoRequest;
 use App\Models\school\Producto;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 /**
@@ -27,9 +28,9 @@ class ProductoController extends Controller
     /**
      * @methode: The methode is a Get: Used for show specific user
      */
-    public function show(Request $request)
+    public function show(int $id)
     {
-        $producto = Producto::find(3);
+        $producto = Producto::find($id);
         return $producto;
     }
 
@@ -55,15 +56,37 @@ class ProductoController extends Controller
      */
     public function update(Request $request)
     {
+        $validation = $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'price' => ['required', 'numeric'],
+            'description' => ['required', 'string', 'min:3', 'max:255'],
+        ]);
 
+        try {
+            $producto = Producto::findOrFail(3);
+            $producto->update($validation);
 
+        } catch (ModelNotFoundException $e) {
+            response()->json([
+                'data' => $e, 'message' => 'Producto no encontrado'
+            ],
+                404);
+        }
     }
 
     /**
      * @methode: The methode is a DELETE
      */
-    public function destroy(Request $request)
+    public function destroy(int $id)
     {
+        try {
+            $producto = Producto::findOrFail($id);
+            $producto::destroy($producto->id);
+        } catch (ModelNotFoundException $e) {
+            response()->json([
+                'data' => $e, 'message' => 'Producto no encontrado'
+            ]);
+        }
 
     }
 
