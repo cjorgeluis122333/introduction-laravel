@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\introduction\UserController;
+use App\Http\Controllers\middleware\AuthControllerController;
 use App\Http\Controllers\middleware\MiddlewareSampleController;
 use App\Http\Controllers\relation\StudentController;
 use App\Http\Controllers\school\ProductoController;
+use App\Http\Middleware\AuthenticateMiddleware;
 use App\Http\Middleware\ExampleOne;
 use App\Http\Resources\UserResource;
 use App\Models\school\Producto;
@@ -42,16 +45,24 @@ Route::post('/relation/{school_id}/attach', [StudentController::class, 'attachSe
 //=================================Video 9 - MIDDLEWARE:
 //Middleware for specific route
 Route::middleware(ExampleOne::class)
-    ->get("/middleware", [MiddlewareSampleController::class, 'index'])
+    ->get("/middleware", [AuthenticateMiddleware::class, 'index'])
     ->name('index');
 //Middleware for many route
 Route::middleware(ExampleOne::class)->group(function () {
-    Route::get('/middleware/access', [MiddlewareSampleController::class, 'noAccess']);
-    Route::post('/middleware/access2', [MiddlewareSampleController::class, 'noAccess2'])
-       //If you do not want to apply a middleware you use withoutMiddleware and the name of the middleware
+    Route::get('/middleware/access', [AuthenticateMiddleware::class, 'noAccess']);
+    Route::post('/middleware/access2', [AuthenticateMiddleware::class, 'noAccess2'])
+        //If you do not want to apply a middleware you use withoutMiddleware and the name of the middleware
         ->withoutMiddleware([ExampleOne::class]);
     //.......
 });
 
+Route::get("/middleware/access", [AuthenticateMiddleware::class, 'noAccess'])->name('no-access');
 
-Route::get("/middleware/access", [MiddlewareSampleController::class, 'noAccess'])->name('no-access');
+//=================================Video 9 - Security:
+Route::post("/security/register", [AuthControllerController::class, 'createUser'])->name('register');
+Route::post("/security/login", [AuthControllerController::class, 'loginUser'])->name('login-user');
+Route::get("/security/all", [AuthControllerController::class, 'getUsers']);
+
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get("/user", [AuthControllerController::class, 'getUsers']);
+});

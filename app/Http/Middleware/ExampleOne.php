@@ -19,7 +19,7 @@ class ExampleOne
         //If failed
 //        abort(403);
         //Else
-        return redirect()->route("no-access");
-//        return $next($request);
+//        return redirect()->route("no-access");
+        return $next($request);
     }
 }

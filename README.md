@@ -18,6 +18,10 @@
 ```shell
    composer global update
 ```
+#### Step 1.1 Update Laravel
+```shell
+composer global require laravel/installer
+```
 #### Step 2 (**V1**): Use Laravel
 ```shell
    laravel new nombre-de-tu-proyecto
@@ -26,17 +30,15 @@
 ```shell
    composer create-project laravel/laravel nombre-de-tu-proyecto
 ```
+#### ==============================AFTER CREATION==============================
 ### Create the route api
 ```shell
    php artisan install:api
 ```
-
-
 ### Run the serve
 ```shell
   php artisan serve
 ```
-
 #### ==============================MIGRATION==============================
 
 ## Up the all **MIGRATION  database**
